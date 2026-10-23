@@ -1,0 +1,289 @@
+:root {
+    --content-width: 900px;
+    --columns-width: 150px;
+
+    --primary-color: #fff3f3;
+    --primary-alt-color: #9e9797;
+    --secondary-color: #a07cff;
+    --secondary-alt-color: #dc98ff;
+    --background-color: #1E1E1C;
+    --background-alt-color: #2c2c2a;
+
+    /* top, right, bottom, left */
+    --header-padding: 25px 50px 10px 50px;
+    --content-padding: 25px 25px 25px 25px;
+    --columns-padding: 25px 35px 25px 35px;
+    --footer-padding: 10px 50px 10px 50px;
+
+    --header-mobile-padding: 25px 25px 25px 25px;
+    --content-mobile-padding: 5px 20px 5px 20px;
+    --columns-mobile-padding: 5px 35px 5px 35px;
+}
+
+@font-face {
+    font-family: FreePixel;
+    src: url('../fonts/FreePixel.ttf');
+}
+
+* {
+    font-family: 'FreePixel', sans-serif;
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+/*                                                                            */
+
+html, body {
+    font-family: 'FreePixel', sans-serif;
+    font-size: 100%;
+    margin: 0;
+    height: 100%;
+    background-color: var(--background-color);
+    color: var(--primary-color);
+    scroll-behavior: smooth;
+}
+
+#header p {
+    margin-top: 4px;
+    margin-bottom: 4px;
+}
+
+a {
+    color: var(--secondary-color);
+}
+
+a:hover {
+    color: var(--secondary-alt-color);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin-top: 0;
+    margin-bottom: 0.5em;
+}
+
+#leftSidebar ul, #rightSidebar ul, #header ul{
+    list-style-type: "// ";
+}
+
+li.kilosite-subheading {
+    list-style-type: "";
+    padding-left: -24px; margin-left: -24px;
+}
+
+li::marker {
+    color: var(--primary-alt-color);
+}
+
+span {
+    color: var(--primary-alt-color);
+}
+
+
+sup {
+    font-weight: bold;
+    font-size: 0.8em;
+    margin-left: 4px;
+    margin-right: 4px;
+}
+
+sup::before {
+    content: "[";
+    margin-right: 1px;
+}
+
+sup::after {
+    content: "]";
+    margin-left: 1px;
+}
+
+code {
+    background-color: var(--background-color);
+    padding: 3px 7px 3px 7px;
+}
+
+code.hljs{
+    font-family: 'FreePixel', sans-serif;
+    background-color: var(--background-color);
+    border-radius: 10px;
+}
+
+#container {
+    max-width: var(--content-width);
+    min-height: 100%;
+    display: flex;
+    flex-flow: column;
+    margin: 0 auto;
+    background-color: var(--background-alt-color);
+}
+
+#flex {
+    display: flex;
+    flex: 1;
+    height: 100%;
+    overflow: hidden;
+}
+
+.horizontal-list {
+    display: flex;
+    padding: 0;
+    margin: 0;
+    text-align: right;
+}
+
+.horizontal-list li {
+    margin-right: 2.1em;
+}
+
+.centered
+{
+    display: block;
+    margin: auto;
+}
+
+img {
+    max-width: 100%;
+}
+
+/*                                                                            */
+
+#header {
+    width: 100%;
+    padding: var(--header-padding);
+    text-align: left;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+aside{
+    width: var(--columns-width);
+    padding: var(--columns-padding);
+}
+
+#leftSidebar {
+    order: 1;
+}
+
+main {
+    order: 2;
+    flex: 1;
+    padding: var(--content-padding);
+}
+
+.title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.grid {
+    background-color: var(--background-color);
+    border: 8px solid var(--background-color);
+    /*border-radius: 8px;*/
+    
+    display: grid;
+    gap: 2px;
+    width: min(80%, calc(80vh - 16px));
+    aspect-ratio: 1;
+    margin-inline: auto;
+}
+
+
+.tile {
+    aspect-ratio: 1; 
+    min-width: 0;
+}
+
+.outset
+{
+    box-shadow:
+            inset 3px 3px 0px rgba(255, 255, 255, 0.4),
+            inset -3px -3px 0px rgba(0, 0, 0, 0.25),
+            4px 4px 0 rgba(0, 0, 0, 0.3);
+}
+
+.outset:hover, .inset
+{
+    box-shadow:
+            inset 4px 4px 0px rgba(0, 0, 0, 0.35),
+            inset -3px -3px 0px rgba(255, 255, 255, 0.25);
+}
+
+
+#score {
+    text-align: center;
+    padding: var(--content-padding);
+    padding-bottom: 0px;
+}
+
+#rightSidebar {
+    order: 3;
+}
+
+hr {
+    background: var(--primary-alt-color);
+}
+
+footer {
+    width: 100%;
+    padding: var(--footer-padding);
+    text-align: center;
+}
+
+/*                                                                            */
+
+@media only screen and (max-width: 800px) {
+
+    #header{
+        padding: var(--header-mobile-padding);
+    }
+
+    #flex {
+        flex-wrap: wrap;
+    }
+
+    .horizontal-list {
+        display: block;
+        padding-left: 40px;
+        margin: initial;
+    }
+
+    .horizontal-list li {
+        display: list-item;
+        margin: 0;
+    }
+
+    main, aside {
+        width: 100%;
+    }
+
+    main {
+        order: 1;
+        padding: var(--content-mobile-padding);
+    }
+
+    aside {
+        /* Can enable or disable depending on if you want sidebars to be hidden on smaller resolution*/
+        display: none;
+        font-size: 100%;
+        padding: var(--columns-mobile-padding);
+    }
+
+    #leftSidebar {
+        order: 2;
+    }
+
+    #rightSidebar {
+        order: 3;
+    }
+
+    .jumper {
+        display: none;
+    }
+
+    .panel-header {
+        flex-direction: column;
+    }
+}
